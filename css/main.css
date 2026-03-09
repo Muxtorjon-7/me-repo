@@ -192,10 +192,10 @@ img {
 }
 .service-card{
   display: inline-block;
-  width: 30%;
-  background-color: #f8faff;
-  margin-right: 3%;
+  width: 40%;
+  background-color:#f8faff;
   text-align: center;
+  margin: 3%;
 }
 
 .service-card__title {
@@ -217,4 +217,18 @@ img {
   font-weight: 500;
   text-transform: uppercase;
   color: #05364d;
+  text-decoration: none;
+}
+
+.service-card__icon{
+  width: 200px;
+  height: 200px;
+  margin: 5px;
+}
+/* Mijozlarim */
+#clients{
+  padding-top: 100px;
+}
+#client-card{
+  margin-bottom: 20px;
 }

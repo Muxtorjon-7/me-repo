@@ -10,6 +10,17 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
+    <link
+     href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      />
+    <link 
+    href="https://getbootstrap.com/docs/5.3/assets/css/docs.css" 
+    rel="stylesheet"
+    />
+    <script 
+    defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js">
+  </script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Portfolio</title>
   </head>
@@ -132,7 +143,7 @@
         Senior (katta) dasturchi
         </h3>
         <p class="about-me__description">
-        Mening ismim Ulugbek va men 23 yoshdaman. 5 yildan ortiq vaqt mobaynida dasturchi bo'lib ishlab
+        Mening ismim Muxtorjon va men 14 yoshdaman. 1 yildan ortiq vaqt mobaynida dasturchi bo'lishni orzu qilaman
         </p>
         <button type="button" class="button to-uppercase about-me__action">
         CV ko'chirib olish
@@ -142,7 +153,8 @@
     </div>
     <!-- /About section -->
     <!--Services section  -->
-    <section id="services">
+<div class="container">
+      <section id="services">
       <h5 class="section-subtitle">
           Mening xizmatlarim
           <span class="blur-line"></span>
@@ -154,35 +166,58 @@
         <div class="services__cards">
           <div class="service-card">
             <img class="service-card__icon" src="./images/service-1.png" alt="Service 1">
-              <h5 class="service-card__title">Veb dasturlash</h5>
+              <h5 class="service-card__title">Veb Dizaynerlik</h5>
             <p class="service-card__description">
                 Savollaringizga to'liq javoblar va birinchi veb saytingizni yaratish uchun kerak bo'ladiga
             </p>
-          <a href="#" class="service-card__link">Ko'proq</a>
+          <a href="#" type="button" class="button service-card__link">Ko'proq</a>
           </div>
            <div class="service-card">
-            <img class="service-card__icon" src="./images/service-1.png" alt="Service 1">
-              <h5 class="service-card__title">Veb dasturlash</h5>
+            <img class="service-card__icon" src="./images/service-2.png" alt="Service 1">
+              <h5 class="service-card__title">Veb UI</h5>
             <p class="service-card__description">
                 Savollaringizga to'liq javoblar va birinchi veb saytingizni yaratish uchun kerak bo'ladiga
             </p>
-          <a href="#" class="service-card__link">Ko'proq</a>
+          <a href="#" type="button" class="button service-card__link">Ko'proq</a>
           </div>
            <div class="service-card">
-            <img class="service-card__icon" src="./images/service-1.png" alt="Service 1">
+            <img class="service-card__icon" src="./images/service-3.png" alt="Service 1">
               <h5 class="service-card__title">Veb dasturlash</h5>
             <p class="service-card__description">
                 Savollaringizga to'liq javoblar va birinchi veb saytingizni yaratish uchun kerak bo'ladiga
             </p>
-          <a href="#" class="service-card__link">Ko'proq</a>
+          <a href="#" type="button" class=" button service-card__link">Ko'proq</a>
           </div>
         </div>
     </section>
+</div>
     <!-- /Services section -->
     <!--Client section  -->
-    <section id="clients">
-      <h1>Mening mijozlarim</h1>
-    </section>
+<div class="container">
+      <section id="clients">
+          <h5 class="section-subtitle" style="
+            font-size: 20px;
+            ">
+          Mening mijozlarim
+          <span class="blur-line"></span>
+      </h5>
+      <h2 class="section-title">
+          Men bilan ishlaganlar<br>
+      </h2>
+              <div class="col" id="client-card">
+                  <div class="card" >
+                    <img src="/images/logo.jpg" class="card-img-top client-image" alt="Bill Gates">
+                  <div class="card-body">
+                    <h5 class="card-title">Bill Gates</h5>
+                    <p class="card-text"> Ms-dos operatsion sistemasini yaratgan dasturchi</p>
+                    <h6>Bill Gates ning fikri</h6>
+                    <p class="card-text">Mening Muxtorjon haqidagi fikrlarim ijobiy u juda yaxshi dasturchi.</p>
+                    <a href="" class="btn btn-dark button">To'liq korish</a>
+                  </div>
+                </div>
+              </div>
+      </section>
+</div>
     <!-- /Client section -->
     <!--Portfolio section  -->
     <section id="portfolio">
