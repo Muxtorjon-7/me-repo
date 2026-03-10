@@ -232,3 +232,20 @@ img {
 #client-card{
   margin-bottom: 20px;
 }
+
+/* Mening ishlarim */
+#portfolio {
+  padding-top: 100px;
+}
+
+.name-text{ 
+  font-weight: 500;
+  color: #000;
+  margin-top: 10px;
+  background:transparent;
+  backdrop-filter: blur(20px);
+}
+.prev-btn {
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 50%;
+}
