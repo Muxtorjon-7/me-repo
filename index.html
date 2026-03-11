@@ -21,6 +21,10 @@
     <script 
     defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js">
   </script>
+  <link
+   href='https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css' 
+   rel='stylesheet'
+   >
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Portfolio</title>
   </head>
@@ -272,44 +276,300 @@
     </section>
 </div>
     <!-- /Portfolio section -->
-    <!--My blog section  -->
-    <section id="blog">
-      <h1>Mening maqolalarim</h1>
-    </section>
-    <!-- /My blog section -->
-    <!--Partners section  -->
-    <section id="partners">
-      <h1>Mening sheriklarim</h1>
-    </section>
-    <!-- /Partners section -->
+    <!-- Articles section  -->
+<div class="container">
+      <section id="articles">
+        <h5 class="section-subtitle">
+          Mening maqolalarim
+          <span class="blur-line"></span>
+        </h5>
+        <h2 class="section-title">
+          Oxirgi maqolalar<br>
+        </h2>
+        <div class="articles__container">
+          <div class="article-card">
+            <div class="article-card__image">
+              <img src="./images/article-1.jpg" alt="Article 1">
+              <span class="article-card__date">2026-03-11</span>
+            </div>
+            <div class="article-card__content">
+              <h4 class="article-card__title">HTML 5 va CSS 3 tarixiy rivojlanishi</h4>
+              <p class="article-card__description">
+                Veb dizayningning asosiy texnologiyalari HTML va CSSning tarixiy rivojlanishi va ularning zamonaviy qo'llanilishi haqida...
+              </p>
+              <div class="article-card__meta">
+                <span class="article-card__author"><i class="fa-solid fa-user"></i> Muxtorjon</span>
+                <span class="article-card__category"><i class="fa-solid fa-tag"></i> Veb dasturlash</span>
+              </div>
+              <a href="#" class="article-card__link">Ko'proq o'qish <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+          </div>
+
+          <div class="article-card">
+            <div class="article-card__image">
+              <img src="./images/article-2.jpg" alt="Article 2">
+              <span class="article-card__date">2026-03-09</span>
+            </div>
+            <div class="article-card__content">
+              <h4 class="article-card__title">JavaScript asoslari va bog'lamlar</h4>
+              <p class="article-card__description">
+                JavaScript dasturlash tilining asosiy tushunchalarini o'rganamiz va praktik misollarda qo'llanishni ko'rib chiqamiz...
+              </p>
+              <div class="article-card__meta">
+                <span class="article-card__author"><i class="fa-solid fa-user"></i> Muxtorjon</span>
+                <span class="article-card__category"><i class="fa-solid fa-tag"></i> JavaScript</span>
+              </div>
+              <a href="#" class="article-card__link">Ko'proq o'qish <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+          </div>
+
+          <div class="article-card">
+            <div class="article-card__image">
+              <img src="./images/article-3.jpg" alt="Article 3">
+              <span class="article-card__date">2026-03-05</span>
+            </div>
+            <div class="article-card__content">
+              <h4 class="article-card__title">React va Component architektirasi</h4>
+              <p class="article-card__description">
+                React kutubxonasining qo'llanilishi, komponentalarni moddalashtirish va state boshqarish usullari haqida to'liq qo'llanma...
+              </p>
+              <div class="article-card__meta">
+                <span class="article-card__author"><i class="fa-solid fa-user"></i> Muxtorjon</span>
+                <span class="article-card__category"><i class="fa-solid fa-tag"></i> React</span>
+              </div>
+              <a href="#" class="article-card__link">Ko'proq o'qish <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+          </div>
+        </div>
+      </section>
+</div>
+    <!-- /Articles section -->
+    <!-- My Works section  -->
+<div class="container">
+      <section id="my-works">
+        <h5 class="section-subtitle">
+          Kendi esa
+          <span class="blur-line"></span>
+        </h5>
+        <h2 class="section-title">
+          Mening ham korlarim<br>
+        </h2>
+        <div class="works__container">
+          <div class="work-card">
+            <div class="work-card__icon">
+              <i class="fa-solid fa-code"></i>
+            </div>
+            <h4 class="work-card__title">Frontend dasturlash</h4>
+            <p class="work-card__description">
+              HTML, CSS, JavaScript va React bilan zamonaviy veb interfeyslari yaratish
+            </p>
+            <div class="work-card__stats">
+              <span class="work-card__stat">15+ loyihalar</span>
+            </div>
+          </div>
+
+          <div class="work-card">
+            <div class="work-card__icon">
+              <i class="fa-solid fa-palette"></i>
+            </div>
+            <h4 class="work-card__title">UI/UX Dizayn</h4>
+            <p class="work-card__description">
+              Foydalanuvchiga qulay va chekka dizaynlar yaratish va prototyplar ishlab chiqish
+            </p>
+            <div class="work-card__stats">
+              <span class="work-card__stat">25+ dizayn</span>
+            </div>
+          </div>
+
+          <div class="work-card">
+            <div class="work-card__icon">
+              <i class="fa-solid fa-database"></i>
+            </div>
+            <h4 class="work-card__title">Backend dasturlash</h4>
+            <p class="work-card__description">
+              Node.js, Express va bazaviy tizimlardan foydalanib server tomonini ishlab chiqish
+            </p>
+            <div class="work-card__stats">
+              <span class="work-card__stat">10+ API</span>
+            </div>
+          </div>
+
+          <div class="work-card">
+            <div class="work-card__icon">
+              <i class="fa-solid fa-mobile"></i>
+            </div>
+            <h4 class="work-card__title">Mobil dasturlash</h4>
+            <p class="work-card__description">
+              React Native va Flutter bilan cross-platform mobil ilovalar yaratish
+            </p>
+            <div class="work-card__stats">
+              <span class="work-card__stat">8+ ilovalar</span>
+            </div>
+          </div>
+
+          <div class="work-card">
+            <div class="work-card__icon">
+              <i class="fa-solid fa-video"></i>
+            </div>
+            <h4 class="work-card__title">Video tahrirish</h4>
+            <p class="work-card__description">
+              Professional sifatdagi videolarni tahrirlash va montaj qilish
+            </p>
+            <div class="work-card__stats">
+              <span class="work-card__stat">30+ videolar</span>
+            </div>
+          </div>
+
+          <div class="work-card">
+            <div class="work-card__icon">
+              <i class="fa-solid fa-rocket"></i>
+            </div>
+            <h4 class="work-card__title">Startuplar</h4>
+            <p class="work-card__description">
+              Yangi biznes g'oyalarni texnik jihatdan amalga oshirish va bozorga chiqarish
+            </p>
+            <div class="work-card__stats">
+              <span class="work-card__stat">5+ startuplar</span>
+            </div>
+          </div>
+        </div>
+      </section>
+</div>
+    <!-- /My Works section -->
+    <!-- Teammates section  -->
+<div class="container">
+      <section id="teammates">
+        <h5 class="section-subtitle">
+          Jamoamiz
+          <span class="blur-line"></span>
+        </h5>
+        <h2 class="section-title">
+          Mening hamkorlarim<br>
+        </h2>
+        <div class="teammates__container">
+          <div class="teammate-card">
+            <div class="teammate-card__image">
+              <img src="./images/teammate-1.jpg" alt="Ali Kamolov">
+              <div class="teammate-card__overlay">
+                <div class="teammate-card__social">
+                  <a href="#" class="teammate-social-link"><i class="fa-brands fa-facebook-f"></i></a>
+                  <a href="#" class="teammate-social-link"><i class="fa-brands fa-instagram"></i></a>
+                  <a href="#" class="teammate-social-link"><i class="fa-brands fa-github"></i></a>
+                  <a href="#" class="teammate-social-link"><i class="fa-brands fa-linkedin-in"></i></a>
+                </div>
+              </div>
+            </div>
+            <div class="teammate-card__content">
+              <h4 class="teammate-card__name">Ali Kamolov</h4>
+              <p class="teammate-card__position">Backend Dasturchi</p>
+              <p class="teammate-card__bio">
+                Node.js va MongoDB da mutaxassislashtirgan dasturchi. API dizayni va database optimizatsiyada tajribali.
+              </p>
+              <div class="teammate-card__social-links">
+                <a href="https://www.facebook.com/ali.kamolov" target="_blank" class="teammate-link"><i class="fa-brands fa-facebook-f"></i></a>
+                <a href="https://www.instagram.com/alikamolov" target="_blank" class="teammate-link"><i class="fa-brands fa-instagram"></i></a>
+                <a href="https://github.com/alikamolov" target="_blank" class="teammate-link"><i class="fa-brands fa-github"></i></a>
+                <a href="https://www.linkedin.com/in/alikamolov" target="_blank" class="teammate-link"><i class="fa-brands fa-linkedin-in"></i></a>
+              </div>
+            </div>
+          </div>
+
+          <div class="teammate-card">
+            <div class="teammate-card__image">
+              <img src="./images/teammate-2.jpg" alt="Natalya Petrov">
+              <div class="teammate-card__overlay">
+                <div class="teammate-card__social">
+                  <a href="#" class="teammate-social-link"><i class="fa-brands fa-facebook-f"></i></a>
+                  <a href="#" class="teammate-social-link"><i class="fa-brands fa-instagram"></i></a>
+                  <a href="#" class="teammate-social-link"><i class="fa-brands fa-github"></i></a>
+                  <a href="#" class="teammate-social-link"><i class="fa-brands fa-linkedin-in"></i></a>
+                </div>
+              </div>
+            </div>
+            <div class="teammate-card__content">
+              <h4 class="teammate-card__name">Natalya Petrov</h4>
+              <p class="teammate-card__position">UI/UX Dizayner</p>
+              <p class="teammate-card__bio">
+                Interfeys dizayni va foydalanuvchi tajribasi bo'yicha mutaxassa. Figma va Adobe XD da professional.
+              </p>
+              <div class="teammate-card__social-links">
+                <a href="https://www.facebook.com/natalya.petrov" target="_blank" class="teammate-link"><i class="fa-brands fa-facebook-f"></i></a>
+                <a href="https://www.instagram.com/natalhyapetrov" target="_blank" class="teammate-link"><i class="fa-brands fa-instagram"></i></a>
+                <a href="https://github.com/nathalyapetrov" target="_blank" class="teammate-link"><i class="fa-brands fa-github"></i></a>
+                <a href="https://www.linkedin.com/in/nathalyapetrov" target="_blank" class="teammate-link"><i class="fa-brands fa-linkedin-in"></i></a>
+              </div>
+            </div>
+          </div>
+
+          <div class="teammate-card">
+            <div class="teammate-card__image">
+              <img src="./images/teammate-3.jpg" alt="Behzod Normatov">
+              <div class="teammate-card__overlay">
+                <div class="teammate-card__social">
+                  <a href="#" class="teammate-social-link"><i class="fa-brands fa-facebook-f"></i></a>
+                  <a href="#" class="teammate-social-link"><i class="fa-brands fa-instagram"></i></a>
+                  <a href="#" class="teammate-social-link"><i class="fa-brands fa-github"></i></a>
+                  <a href="#" class="teammate-social-link"><i class="fa-brands fa-linkedin-in"></i></a>
+                </div>
+              </div>
+            </div>
+            <div class="teammate-card__content">
+              <h4 class="teammate-card__name">Behzod Normatov</h4>
+              <p class="teammate-card__position">Frontend Dasturchi</p>
+              <p class="teammate-card__bio">
+                React va Vue.js da malaka sahibi. SPA va responsive designda tajribali developer.
+              </p>
+              <div class="teammate-card__social-links">
+                <a href="https://www.facebook.com/behzod.normatov" target="_blank" class="teammate-link"><i class="fa-brands fa-facebook-f"></i></a>
+                <a href="https://www.instagram.com/behzodnormatov" target="_blank" class="teammate-link"><i class="fa-brands fa-instagram"></i></a>
+                <a href="https://github.com/behzodnormatov" target="_blank" class="teammate-link"><i class="fa-brands fa-github"></i></a>
+                <a href="https://www.linkedin.com/in/behzodnormatov" target="_blank" class="teammate-link"><i class="fa-brands fa-linkedin-in"></i></a>
+              </div>
+            </div>
+          </div>
+
+          <div class="teammate-card">
+            <div class="teammate-card__image">
+              <img src="./images/teammate-4.jpg" alt="Laylo Rahimova">
+              <div class="teammate-card__overlay">
+                <div class="teammate-card__social">
+                  <a href="#" class="teammate-social-link"><i class="fa-brands fa-facebook-f"></i></a>
+                  <a href="#" class="teammate-social-link"><i class="fa-brands fa-instagram"></i></a>
+                  <a href="#" class="teammate-social-link"><i class="fa-brands fa-github"></i></a>
+                  <a href="#" class="teammate-social-link"><i class="fa-brands fa-linkedin-in"></i></a>
+                </div>
+              </div>
+            </div>
+            <div class="teammate-card__content">
+              <h4 class="teammate-card__name">Laylo Rahimova</h4>
+              <p class="teammate-card__position">Project Manager</p>
+              <p class="teammate-card__bio">
+                Loyihalarni boshqarishda tajribali menejr. Agile metodologiyasida sertifikatlangan.
+              </p>
+              <div class="teammate-card__social-links">
+                <a href="https://www.facebook.com/laylo.rahimova" target="_blank" class="teammate-link"><i class="fa-brands fa-facebook-f"></i></a>
+                <a href="https://www.instagram.com/laylorahimova" target="_blank" class="teammate-link"><i class="fa-brands fa-instagram"></i></a>
+                <a href="https://github.com/laylorahimova" target="_blank" class="teammate-link"><i class="fa-brands fa-github"></i></a>
+                <a href="https://www.linkedin.com/in/laylorahimova" target="_blank" class="teammate-link"><i class="fa-brands fa-linkedin-in"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+</div>
+    <!-- /Teammates section -->
     <!-- Footer  -->
-    <footer>
-      <nav>
-        <ul>
-          <li>
-            <a href="">Asosiy </a>
-          </li>
-          <li>
-            <a href="">Men haqimda</a>
-          </li>
-          <li>
-            <a href="">Mening xizmatlarim </a>
-          </li>
-          <li>
-            <a href="">Mijozlarim </a>
-          </li>
-          <li>
-            <a href="">Portfolio</a>
-          </li>
-          <li>
-            <a href="">Mening blogim </a>
-          </li>
-          <li>
-            <a href="">Sheriklarim</a>
-          </li>
-        </ul>
-      </nav>
-    </footer>
+<div class="container">
+            <footer class="footer">
+            <p class="footer__title">Muxtorjon</p>
+            <div class="footer__social">
+                <a href="#" class="footer__icon"><i class='bx bxl-facebook' ></i></a>
+                <a href="#" class="footer__icon"><i class='bx bxl-instagram' ></i></a>
+                <a href="#" class="footer__icon"><i class='bx bxl-twitter' ></i></a>
+            </div>
+            <p class="footer__copy">&#169; Muxtorjon. All rigths reserved</p>
+        </footer>
+</div>
     <!-- /Footer -->
   </body>
 </html>
