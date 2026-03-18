@@ -70,6 +70,23 @@
             </li>
           </ul>
         </nav>
+        <div class="header-controls">
+          <select id="language-toggle" class="language-toggle" aria-label="Language selector">
+            <option value="uz">UZ</option>
+            <option value="en">EN</option>
+            <option value="ru">RU</option>
+          </select>
+          <button
+            type="button"
+            id="theme-toggle"
+            class="theme-toggle"
+            aria-label="Toggle theme"
+            title="Change theme"
+          >
+            <i class="fa-solid fa-sun"></i>
+            <span>Light</span>
+          </button>
+        </div>
       </header>
     </div>
     <!-- /header section  -->
@@ -80,7 +97,7 @@
           <h4 class="main-section__welcome to-uppercase">Salom hammaga</h4>
           <h1 class="main-section__introduction to-uppercase">I am Rasulov</h1>
           <h3 class="main-section__position to-uppercase">
-            Junior dasturchi & Vlogger
+            Full Stack Developer
           </h3>
           <div class="main-section__social-networks">
             <a href="#" class="main-section__social-link"
@@ -152,7 +169,7 @@
         <span class="blur-line"></span>
         </h5>
         <h3 class="section-title">
-        Senior (katta) dasturchi
+        Full Stack Dasturchi
         </h3>
         <p class="about-me__description">
         Mening ismim Muxtorjon va men 14 yoshdaman. 1 yildan ortiq vaqt mobaynida dasturchi bo'lishni orzu qilaman
@@ -572,7 +589,7 @@
     <div class="footer__section">
       <div class="footer__logo">
         <h3 class="footer__brand">Muxtorjon</h3>
-        <p class="footer__tagline">Web Developer & Blogger</p>
+        <p class="footer__tagline">Full Stack Developer</p>
       </div>
       <p class="footer__description">
         Zamonaviy veb saytlari va ilovalarni yaratishda mutaxassa developer. Sizning loyihangizni haqiqatga aylantirishga tayyor.
@@ -639,5 +656,430 @@
   </div>
 </footer>
     <!-- /Footer -->
+    <script>
+      (function () {
+        const root = document.body;
+        const toggle = document.getElementById("theme-toggle");
+        const icon = toggle.querySelector("i");
+        const label = toggle.querySelector("span");
+        const languageToggle = document.getElementById("language-toggle");
+        const savedTheme = localStorage.getItem("theme");
+        const savedLanguage = localStorage.getItem("language") || "en";
+        const prefersLight = window.matchMedia("(prefers-color-scheme: light)").matches;
+        const initialTheme = savedTheme || (prefersLight ? "light" : "dark");
+        const translations = {
+          uz: {
+            nav_home: "Asosiy",
+            nav_about: "Men haqimda",
+            nav_services: "Xizmatlar",
+            nav_clients: "Mijozlar",
+            nav_portfolio: "Portfolio",
+            nav_blog: "Blog",
+            nav_skills: "Skills",
+            nav_team: "Jamoamiz",
+            hero_hello: "Salom hammaga",
+            hero_role: "Full Stack Developer",
+            hero_button: "Ishlarimni ko'ring",
+            stat_clients: "Hursand mijozlar",
+            stat_help: "Yordam",
+            stat_rating: "O'rtacha ball",
+            about_sub: "Men haqimda <span class='blur-line'></span>",
+            about_title: "Full Stack Dasturchi",
+            about_desc: "Mening ismim Muxtorjon va men 14 yoshdaman. 1 yildan ortiq vaqt mobaynida dasturchi bo'lishni orzu qilaman",
+            about_btn: "CV ko'chirib olish",
+            service_sub: "Mening xizmatlarim <span class='blur-line'></span>",
+            service_title: "Men taklif <br> qiladigan xizmatlar",
+            service_1_title: "Veb Dizaynerlik",
+            service_2_title: "Veb UI",
+            service_3_title: "Veb dasturlash",
+            service_desc: "Savollaringizga to'liq javoblar va birinchi veb saytingizni yaratish uchun kerak bo'ladiga",
+            more: "Ko'proq",
+            clients_sub: "Mening mijozlarim <span class='blur-line'></span>",
+            clients_title: "Men bilan ishlaganlar<br>",
+            client_bio: "Ms-dos operatsion sistemasini yaratgan dasturchi",
+            client_thought_title: "Bill Gates ning fikri",
+            client_thought: "Mening Muxtorjon haqidagi fikrlarim ijobiy u juda yaxshi dasturchi.",
+            client_btn: "To'liq ko'rish",
+            portfolio_sub: "Mening portfolioim <span class='blur-line'></span>",
+            portfolio_title: "Mening ishlarim<br>",
+            slide_1_desc: "Mummy code loyihasi haqida qisqacha ma'lumot.",
+            slide_2_desc: "Love calculator loyihasi haqida qisqacha ma'lumot.",
+            slide_3_desc: "Portfolio loyihasi haqida qisqacha ma'lumot.",
+            articles_sub: "Mening maqolalarim <span class='blur-line'></span>",
+            articles_title: "Oxirgi maqolalar<br>",
+            a1_title: "HTML 5 va CSS 3 tarixiy rivojlanishi",
+            a1_desc: "Veb dizayningning asosiy texnologiyalari HTML va CSSning tarixiy rivojlanishi va ularning zamonaviy qo'llanilishi haqida...",
+            a2_title: "JavaScript asoslari va bog'lamlar",
+            a2_desc: "JavaScript dasturlash tilining asosiy tushunchalarini o'rganamiz va praktik misollarda qo'llanishni ko'rib chiqamiz...",
+            a3_title: "React va Component architektirasi",
+            a3_desc: "React kutubxonasining qo'llanilishi, komponentalarni moddalashtirish va state boshqarish usullari haqida to'liq qo'llanma...",
+            read_more: "Ko'proq o'qish <i class='fa-solid fa-arrow-right'></i>",
+            works_sub: "Skill <span class='blur-line'></span>",
+            works_title: "Mening qila oladigan ishlarim<br>",
+            w1_title: "Frontend dasturlash",
+            w1_desc: "HTML, CSS, JavaScript va React bilan zamonaviy veb interfeyslari yaratish",
+            w2_title: "UI/UX Dizayn",
+            w2_desc: "Foydalanuvchiga qulay va chekka dizaynlar yaratish va prototyplar ishlab chiqish",
+            w3_title: "Backend dasturlash",
+            w3_desc: "Node.js, Express va bazaviy tizimlardan foydalanib server tomonini ishlab chiqish",
+            w4_title: "Mobil dasturlash",
+            w4_desc: "React Native va Flutter bilan cross-platform mobil ilovalar yaratish",
+            w5_title: "Video tahrirish",
+            w5_desc: "Professional sifatdagi videolarni tahrirlash va montaj qilish",
+            w6_title: "Startuplar",
+            w6_desc: "Yangi biznes g'oyalarni texnik jihatdan amalga oshirish va bozorga chiqarish",
+            team_sub: "Jamoamiz <span class='blur-line'></span>",
+            team_title: "Mening hamkorlarim<br>",
+            t1_pos: "Backend Dasturchi",
+            t2_pos: "UI/UX Dizayner",
+            t3_pos: "Frontend Dasturchi",
+            t4_pos: "Project Manager",
+            t1_bio: "Node.js va MongoDB da mutaxassislashtirgan dasturchi. API dizayni va database optimizatsiyada tajribali.",
+            t2_bio: "Interfeys dizayni va foydalanuvchi tajribasi bo'yicha mutaxassa. Figma va Adobe XD da professional.",
+            t3_bio: "React va Vue.js da malaka sahibi. SPA va responsive designda tajribali developer.",
+            t4_bio: "Loyihalarni boshqarishda tajribali menejr. Agile metodologiyasida sertifikatlangan.",
+            foot_tag: "Full Stack Developer",
+            foot_desc: "Zamonaviy veb saytlari va ilovalarni yaratishda mutaxassa developer. Sizning loyihangizni haqiqatga aylantirishga tayyor.",
+            foot_services: "Xizmatlar",
+            foot_pages: "Sahifalar",
+            foot_contact: "Aloqalar",
+            foot_link_1: "Veb Dizaynerlik",
+            foot_link_2: "Frontend Dasturlash",
+            foot_link_3: "Backend Dasturlash",
+            foot_link_4: "Mobil Ilovalar",
+            foot_page_1: "Asosiy",
+            foot_page_2: "Men haqimda",
+            foot_page_3: "Portfolio",
+            foot_page_4: "Maqolalar",
+            foot_page_5: "Jamoam",
+            foot_page_6: "Skill",
+            foot_city: "Tashkent, Uzbekistan",
+            foot_copy: "© 2026 Muxtorjon. Barcha huquqlar himoyalangan.",
+            foot_privacy: "Maxfiylik Siyosati",
+            foot_terms: "Foydalanuvchi Shartlari",
+            foot_cookies: "Cookies"
+          },
+          en: {
+            nav_home: "Home",
+            nav_about: "About",
+            nav_services: "Services",
+            nav_clients: "Clients",
+            nav_portfolio: "Portfolio",
+            nav_blog: "Blog",
+            nav_skills: "Skills",
+            nav_team: "Team",
+            hero_hello: "Hello everyone",
+            hero_role: "Full Stack Developer",
+            hero_button: "View my work",
+            stat_clients: "Happy clients",
+            stat_help: "Support",
+            stat_rating: "Average score",
+            about_sub: "About me <span class='blur-line'></span>",
+            about_title: "Full Stack Developer",
+            about_desc: "My name is Muxtorjon and I am 14 years old. For over 1 year I have dreamed of becoming a programmer.",
+            about_btn: "Download CV",
+            service_sub: "My services <span class='blur-line'></span>",
+            service_title: "Services <br> I provide",
+            service_1_title: "Web Design",
+            service_2_title: "Web UI",
+            service_3_title: "Web Development",
+            service_desc: "Clear answers to your questions and all essentials to build your first website.",
+            more: "Learn more",
+            clients_sub: "My clients <span class='blur-line'></span>",
+            clients_title: "People who worked with me<br>",
+            client_bio: "Programmer who created the MS-DOS operating system.",
+            client_thought_title: "Bill Gates' opinion",
+            client_thought: "My opinion about Muxtorjon is positive; he is a very good developer.",
+            client_btn: "View details",
+            portfolio_sub: "My portfolio <span class='blur-line'></span>",
+            portfolio_title: "My projects<br>",
+            slide_1_desc: "Short overview of the Mummy code project.",
+            slide_2_desc: "Short overview of the Love calculator project.",
+            slide_3_desc: "Short overview of the Portfolio project.",
+            articles_sub: "My articles <span class='blur-line'></span>",
+            articles_title: "Latest articles<br>",
+            a1_title: "The historical evolution of HTML5 and CSS3",
+            a1_desc: "About the historical development of HTML and CSS and how they are used in modern web development...",
+            a2_title: "JavaScript fundamentals and integrations",
+            a2_desc: "We explore core JavaScript concepts and practical usage with real-world examples...",
+            a3_title: "React and component architecture",
+            a3_desc: "A complete guide to React usage, component modularization, and state management patterns...",
+            read_more: "Read more <i class='fa-solid fa-arrow-right'></i>",
+            works_sub: "Skills <span class='blur-line'></span>",
+            works_title: "What I can do<br>",
+            w1_title: "Frontend Development",
+            w1_desc: "Building modern web interfaces with HTML, CSS, JavaScript, and React.",
+            w2_title: "UI/UX Design",
+            w2_desc: "Designing intuitive interfaces and creating practical prototypes.",
+            w3_title: "Backend Development",
+            w3_desc: "Developing server-side systems with Node.js, Express, and databases.",
+            w4_title: "Mobile Development",
+            w4_desc: "Creating cross-platform mobile apps with React Native and Flutter.",
+            w5_title: "Video Editing",
+            w5_desc: "Editing and producing professional quality video content.",
+            w6_title: "Startups",
+            w6_desc: "Turning new business ideas into real technical products.",
+            team_sub: "Our team <span class='blur-line'></span>",
+            team_title: "My collaborators<br>",
+            t1_pos: "Backend Developer",
+            t2_pos: "UI/UX Designer",
+            t3_pos: "Frontend Developer",
+            t4_pos: "Project Manager",
+            t1_bio: "Specialized in Node.js and MongoDB with strong API design and database optimization skills.",
+            t2_bio: "Experienced in interface design and user experience. Professional with Figma and Adobe XD.",
+            t3_bio: "Skilled in React and Vue.js with practical SPA and responsive design experience.",
+            t4_bio: "Experienced manager in project delivery and Agile methodologies.",
+            foot_tag: "Full Stack Developer",
+            foot_desc: "I build modern websites and applications and help turn your ideas into real products.",
+            foot_services: "Services",
+            foot_pages: "Pages",
+            foot_contact: "Contacts",
+            foot_link_1: "Web Design",
+            foot_link_2: "Frontend Development",
+            foot_link_3: "Backend Development",
+            foot_link_4: "Mobile Apps",
+            foot_page_1: "Home",
+            foot_page_2: "About",
+            foot_page_3: "Portfolio",
+            foot_page_4: "Articles",
+            foot_page_5: "Team",
+            foot_page_6: "Skills",
+            foot_city: "Tashkent, Uzbekistan",
+            foot_copy: "© 2026 Muxtorjon. All rights reserved.",
+            foot_privacy: "Privacy Policy",
+            foot_terms: "Terms of Use",
+            foot_cookies: "Cookies"
+          },
+          ru: {
+            nav_home: "Главная",
+            nav_about: "Обо мне",
+            nav_services: "Услуги",
+            nav_clients: "Клиенты",
+            nav_portfolio: "Портфолио",
+            nav_blog: "Блог",
+            nav_skills: "Навыки",
+            nav_team: "Команда",
+            hero_hello: "Всем привет",
+            hero_role: "Full Stack Developer",
+            hero_button: "Смотреть работы",
+            stat_clients: "Довольные клиенты",
+            stat_help: "Поддержка",
+            stat_rating: "Средняя оценка",
+            about_sub: "Обо мне <span class='blur-line'></span>",
+            about_title: "Full Stack Разработчик",
+            about_desc: "Меня зовут Мухторжон, мне 14 лет. Уже больше года я мечтаю стать программистом.",
+            about_btn: "Скачать CV",
+            service_sub: "Мои услуги <span class='blur-line'></span>",
+            service_title: "Услуги, которые <br> я предлагаю",
+            service_1_title: "Веб-дизайн",
+            service_2_title: "Веб UI",
+            service_3_title: "Веб-разработка",
+            service_desc: "Полные ответы на ваши вопросы и все, что нужно для создания первого сайта.",
+            more: "Подробнее",
+            clients_sub: "Мои клиенты <span class='blur-line'></span>",
+            clients_title: "Кто работал со мной<br>",
+            client_bio: "Программист, создавший операционную систему MS-DOS.",
+            client_thought_title: "Мнение Билла Гейтса",
+            client_thought: "Мое мнение о Мухторжоне положительное, он очень хороший разработчик.",
+            client_btn: "Смотреть полностью",
+            portfolio_sub: "Мое портфолио <span class='blur-line'></span>",
+            portfolio_title: "Мои проекты<br>",
+            slide_1_desc: "Кратко о проекте Mummy code.",
+            slide_2_desc: "Кратко о проекте Love calculator.",
+            slide_3_desc: "Кратко о проекте Portfolio.",
+            articles_sub: "Мои статьи <span class='blur-line'></span>",
+            articles_title: "Последние статьи<br>",
+            a1_title: "Историческое развитие HTML5 и CSS3",
+            a1_desc: "Об историческом развитии HTML и CSS и их применении в современной веб-разработке...",
+            a2_title: "Основы JavaScript и интеграции",
+            a2_desc: "Изучаем базовые концепции JavaScript и практическое применение на примерах...",
+            a3_title: "React и архитектура компонентов",
+            a3_desc: "Полное руководство по React, модульности компонентов и управлению состоянием...",
+            read_more: "Читать далее <i class='fa-solid fa-arrow-right'></i>",
+            works_sub: "Навыки <span class='blur-line'></span>",
+            works_title: "Что я умею<br>",
+            w1_title: "Frontend разработка",
+            w1_desc: "Создание современных веб-интерфейсов на HTML, CSS, JavaScript и React.",
+            w2_title: "UI/UX Дизайн",
+            w2_desc: "Создание удобных интерфейсов и прототипов для пользователей.",
+            w3_title: "Backend разработка",
+            w3_desc: "Разработка серверной части на Node.js, Express и базах данных.",
+            w4_title: "Мобильная разработка",
+            w4_desc: "Создание кроссплатформенных приложений на React Native и Flutter.",
+            w5_title: "Монтаж видео",
+            w5_desc: "Профессиональный монтаж и обработка видеоконтента.",
+            w6_title: "Стартапы",
+            w6_desc: "Техническая реализация новых бизнес-идей и запуск на рынок.",
+            team_sub: "Наша команда <span class='blur-line'></span>",
+            team_title: "Мои коллеги<br>",
+            t1_pos: "Backend разработчик",
+            t2_pos: "UI/UX дизайнер",
+            t3_pos: "Frontend разработчик",
+            t4_pos: "Project Manager",
+            t1_bio: "Специалист по Node.js и MongoDB. Опыт в проектировании API и оптимизации баз данных.",
+            t2_bio: "Эксперт по дизайну интерфейсов и UX. Профессионально работает в Figma и Adobe XD.",
+            t3_bio: "Опытный разработчик на React и Vue.js, специализация на SPA и адаптивном дизайне.",
+            t4_bio: "Опытный менеджер проектов, сертифицирован по Agile-методологиям.",
+            foot_tag: "Full Stack Developer",
+            foot_desc: "Создаю современные сайты и приложения и помогаю превращать идеи в реальные продукты.",
+            foot_services: "Услуги",
+            foot_pages: "Страницы",
+            foot_contact: "Контакты",
+            foot_link_1: "Веб-дизайн",
+            foot_link_2: "Frontend разработка",
+            foot_link_3: "Backend разработка",
+            foot_link_4: "Мобильные приложения",
+            foot_page_1: "Главная",
+            foot_page_2: "Обо мне",
+            foot_page_3: "Портфолио",
+            foot_page_4: "Статьи",
+            foot_page_5: "Команда",
+            foot_page_6: "Навыки",
+            foot_city: "Ташкент, Узбекистан",
+            foot_copy: "© 2026 Muxtorjon. Все права защищены.",
+            foot_privacy: "Политика конфиденциальности",
+            foot_terms: "Условия использования",
+            foot_cookies: "Cookies"
+          }
+        };
+        const textMap = [
+          { sel: ".main-navigation__item:nth-child(1) a", key: "nav_home" },
+          { sel: ".main-navigation__item:nth-child(2) a", key: "nav_about" },
+          { sel: ".main-navigation__item:nth-child(3) a", key: "nav_services" },
+          { sel: ".main-navigation__item:nth-child(4) a", key: "nav_clients" },
+          { sel: ".main-navigation__item:nth-child(5) a", key: "nav_portfolio" },
+          { sel: ".main-navigation__item:nth-child(6) a", key: "nav_blog" },
+          { sel: ".main-navigation__item:nth-child(7) a", key: "nav_skills" },
+          { sel: ".main-navigation__item:nth-child(8) a", key: "nav_team" },
+          { sel: ".main-section__welcome", key: "hero_hello" },
+          { sel: ".main-section__position", key: "hero_role" },
+          { sel: ".main-section__action", key: "hero_button" },
+          { sel: ".statistics__item:nth-child(1) .statistics_title", key: "stat_clients" },
+          { sel: ".statistics__item:nth-child(2) .statistics_title", key: "stat_help" },
+          { sel: ".statistics__item:nth-child(3) .statistics_title", key: "stat_rating" },
+          { sel: "#about-me .section-subtitle", key: "about_sub", html: true },
+          { sel: "#about-me .section-title", key: "about_title" },
+          { sel: ".about-me__description", key: "about_desc" },
+          { sel: ".about-me__action", key: "about_btn" },
+          { sel: "#services .section-subtitle", key: "service_sub", html: true },
+          { sel: "#services .section-title", key: "service_title", html: true },
+          { sel: ".service-card:nth-child(1) .service-card__title", key: "service_1_title" },
+          { sel: ".service-card:nth-child(2) .service-card__title", key: "service_2_title" },
+          { sel: ".service-card:nth-child(3) .service-card__title", key: "service_3_title" },
+          { sel: ".service-card:nth-child(1) .service-card__description", key: "service_desc" },
+          { sel: ".service-card:nth-child(2) .service-card__description", key: "service_desc" },
+          { sel: ".service-card:nth-child(3) .service-card__description", key: "service_desc" },
+          { sel: ".service-card:nth-child(1) .service-card__link", key: "more" },
+          { sel: ".service-card:nth-child(2) .service-card__link", key: "more" },
+          { sel: ".service-card:nth-child(3) .service-card__link", key: "more" },
+          { sel: "#clients .section-subtitle", key: "clients_sub", html: true },
+          { sel: "#clients .section-title", key: "clients_title", html: true },
+          { sel: "#client-card .card-text:nth-of-type(1)", key: "client_bio" },
+          { sel: "#client-card h6", key: "client_thought_title" },
+          { sel: "#client-card .card-text:nth-of-type(2)", key: "client_thought" },
+          { sel: "#client-card .button", key: "client_btn" },
+          { sel: "#portfolio .section-subtitle", key: "portfolio_sub", html: true },
+          { sel: "#portfolio .section-title", key: "portfolio_title", html: true },
+          { sel: ".carousel-item:nth-child(1) .carousel-caption p", key: "slide_1_desc" },
+          { sel: ".carousel-item:nth-child(2) .carousel-caption p", key: "slide_2_desc" },
+          { sel: ".carousel-item:nth-child(3) .carousel-caption p", key: "slide_3_desc" },
+          { sel: "#articles .section-subtitle", key: "articles_sub", html: true },
+          { sel: "#articles .section-title", key: "articles_title", html: true },
+          { sel: ".article-card:nth-child(1) .article-card__title", key: "a1_title" },
+          { sel: ".article-card:nth-child(1) .article-card__description", key: "a1_desc" },
+          { sel: ".article-card:nth-child(2) .article-card__title", key: "a2_title" },
+          { sel: ".article-card:nth-child(2) .article-card__description", key: "a2_desc" },
+          { sel: ".article-card:nth-child(3) .article-card__title", key: "a3_title" },
+          { sel: ".article-card:nth-child(3) .article-card__description", key: "a3_desc" },
+          { sel: ".article-card:nth-child(1) .article-card__link", key: "read_more", html: true },
+          { sel: ".article-card:nth-child(2) .article-card__link", key: "read_more", html: true },
+          { sel: ".article-card:nth-child(3) .article-card__link", key: "read_more", html: true },
+          { sel: "#my-works .section-subtitle", key: "works_sub", html: true },
+          { sel: "#my-works .section-title", key: "works_title", html: true },
+          { sel: ".work-card:nth-child(1) .work-card__title", key: "w1_title" },
+          { sel: ".work-card:nth-child(1) .work-card__description", key: "w1_desc" },
+          { sel: ".work-card:nth-child(2) .work-card__title", key: "w2_title" },
+          { sel: ".work-card:nth-child(2) .work-card__description", key: "w2_desc" },
+          { sel: ".work-card:nth-child(3) .work-card__title", key: "w3_title" },
+          { sel: ".work-card:nth-child(3) .work-card__description", key: "w3_desc" },
+          { sel: ".work-card:nth-child(4) .work-card__title", key: "w4_title" },
+          { sel: ".work-card:nth-child(4) .work-card__description", key: "w4_desc" },
+          { sel: ".work-card:nth-child(5) .work-card__title", key: "w5_title" },
+          { sel: ".work-card:nth-child(5) .work-card__description", key: "w5_desc" },
+          { sel: ".work-card:nth-child(6) .work-card__title", key: "w6_title" },
+          { sel: ".work-card:nth-child(6) .work-card__description", key: "w6_desc" },
+          { sel: "#teammates .section-subtitle", key: "team_sub", html: true },
+          { sel: "#teammates .section-title", key: "team_title", html: true },
+          { sel: ".teammate-card:nth-child(1) .teammate-card__position", key: "t1_pos" },
+          { sel: ".teammate-card:nth-child(2) .teammate-card__position", key: "t2_pos" },
+          { sel: ".teammate-card:nth-child(3) .teammate-card__position", key: "t3_pos" },
+          { sel: ".teammate-card:nth-child(4) .teammate-card__position", key: "t4_pos" },
+          { sel: ".teammate-card:nth-child(1) .teammate-card__bio", key: "t1_bio" },
+          { sel: ".teammate-card:nth-child(2) .teammate-card__bio", key: "t2_bio" },
+          { sel: ".teammate-card:nth-child(3) .teammate-card__bio", key: "t3_bio" },
+          { sel: ".teammate-card:nth-child(4) .teammate-card__bio", key: "t4_bio" },
+          { sel: ".footer__tagline", key: "foot_tag" },
+          { sel: ".footer__description", key: "foot_desc" },
+          { sel: ".footer__section:nth-child(2) .footer__section-title", key: "foot_services" },
+          { sel: ".footer__section:nth-child(3) .footer__section-title", key: "foot_pages" },
+          { sel: ".footer__section:nth-child(4) .footer__section-title", key: "foot_contact" },
+          { sel: ".footer__section:nth-child(2) .footer__links li:nth-child(1) .footer__link", key: "foot_link_1" },
+          { sel: ".footer__section:nth-child(2) .footer__links li:nth-child(2) .footer__link", key: "foot_link_2" },
+          { sel: ".footer__section:nth-child(2) .footer__links li:nth-child(3) .footer__link", key: "foot_link_3" },
+          { sel: ".footer__section:nth-child(2) .footer__links li:nth-child(4) .footer__link", key: "foot_link_4" },
+          { sel: ".footer__section:nth-child(3) .footer__links li:nth-child(1) .footer__link", key: "foot_page_1" },
+          { sel: ".footer__section:nth-child(3) .footer__links li:nth-child(2) .footer__link", key: "foot_page_2" },
+          { sel: ".footer__section:nth-child(3) .footer__links li:nth-child(3) .footer__link", key: "foot_page_3" },
+          { sel: ".footer__section:nth-child(3) .footer__links li:nth-child(4) .footer__link", key: "foot_page_4" },
+          { sel: ".footer__section:nth-child(3) .footer__links li:nth-child(5) .footer__link", key: "foot_page_5" },
+          { sel: ".footer__section:nth-child(3) .footer__links li:nth-child(6) .footer__link", key: "foot_page_6" },
+          { sel: ".footer__contact-item:nth-child(3)", key: "foot_city", html: true, icon: "fa-solid fa-map-location-dot" },
+          { sel: ".footer__copy", key: "foot_copy" },
+          { sel: ".footer__bottom-link:nth-child(1)", key: "foot_privacy" },
+          { sel: ".footer__bottom-link:nth-child(2)", key: "foot_terms" },
+          { sel: ".footer__bottom-link:nth-child(3)", key: "foot_cookies" }
+        ];
+
+        function setTheme(theme) {
+          root.setAttribute("data-theme", theme);
+          const isLight = theme === "light";
+          icon.className = isLight ? "fa-solid fa-moon" : "fa-solid fa-sun";
+          label.textContent = isLight ? "Dark" : "Light";
+          localStorage.setItem("theme", theme);
+        }
+
+        function setLanguage(language) {
+          const current = translations[language] || translations.uz;
+          document.documentElement.lang = language;
+          textMap.forEach(function (item) {
+            const element = document.querySelector(item.sel);
+            if (!element || !current[item.key]) return;
+            if (item.icon) {
+              element.innerHTML = "<i class='" + item.icon + "'></i> " + current[item.key];
+              return;
+            }
+            if (item.html) {
+              element.innerHTML = current[item.key];
+            } else {
+              element.textContent = current[item.key];
+            }
+          });
+          languageToggle.value = language;
+          localStorage.setItem("language", language);
+        }
+
+        setTheme(initialTheme);
+        setLanguage(savedLanguage);
+
+        toggle.addEventListener("click", function () {
+          const currentTheme = root.getAttribute("data-theme") || "dark";
+          setTheme(currentTheme === "dark" ? "light" : "dark");
+        });
+
+        languageToggle.addEventListener("change", function (event) {
+          setLanguage(event.target.value);
+        });
+      })();
+    </script>
   </body>
 </html>
